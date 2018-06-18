@@ -41,7 +41,7 @@ int main(int argc, char* argv[]) {
 
       xml_document<char> c;
       FusionBCF fusion(filter);
-      fusion.Union(a, b, c);
+      fusion.UnionDocuments(a, b, c);
       std::string xmlAsString;
       print(back_inserter(xmlAsString), c);
 
