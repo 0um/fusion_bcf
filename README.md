@@ -1,5 +1,5 @@
-# fusion_xml
-Command line tool to merge two xml files
+# fusion_bcf
+Command line tool to merge two bcf files
 
 **Only Windows Platform!**
 
@@ -10,9 +10,7 @@ cmake -G "Visual Studio 15 2017"
 
 Run
 ```
-fusion_xml.exe -id filter inputA inputB <optional OutputC>
-<optional id filer> -id <filter>
-
+fusion_bcf.exe inputA inputB <optional OutputC>
 ```
 
 Note rapidxml is over.

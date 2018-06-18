@@ -12,18 +12,16 @@ using namespace rapidxml;
 
 void ShowHelp() {
   std::cout << "fusion_bcf.exe -id filter inputA inputB <optional OutputC>" << std::endl;
-  std::cout << "<optional id filer> -id <filter>" << std::endl;
 }
 
 int main(int argc, char* argv[]) {
-  if (argc >= 5 && argc <= 6) {
+  if (argc >= 3 && argc <= 4) {
     const std::string empty = "";
-    std::string filter = argv[2];
-    std::string inputA = argv[3];
-    std::string inputB = argv[4];
+    std::string inputA = argv[1];
+    std::string inputB = argv[2];
     std::string outputC;
-    if (argc > 5) {
-      outputC = argv[5];
+    if (argc > 3) {
+      outputC = argv[3];
     }
 
     if (inputA != empty && inputB != empty) {
@@ -40,7 +38,7 @@ int main(int argc, char* argv[]) {
       }
 
       xml_document<char> c;
-      FusionBCF fusion(filter);
+      FusionBCF fusion;
       fusion.UnionDocuments(a, b, c);
       std::string xmlAsString;
       print(back_inserter(xmlAsString), c);

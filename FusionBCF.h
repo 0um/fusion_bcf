@@ -14,8 +14,7 @@ public:
   using Document = rapidxml::xml_document<char>;
   using Node = rapidxml::xml_node<char>;
 
-  FusionBCF() = delete;
-  explicit FusionBCF(const std::string& idFilter) : idFilter(idFilter) {};
+  FusionBCF() = default;
   virtual ~FusionBCF() = default;
 
 
@@ -41,7 +40,7 @@ private:
   void Preppend(const std::string& name, Node* parent);
   void RemoveDuplicateKeys(const Node* nodeToMerge, KeySet& keys);
 
-  std::string idFilter;
+  std::string idFilter = "Guid";
   Document* doc = nullptr;
 };
 
