@@ -17,7 +17,6 @@ public:
   FusionBCF() = default;
   virtual ~FusionBCF() = default;
 
-
   void UnionDocuments(const Document &a, const Document &b, Document &c);
   void UnionNodes(const Node *a, const Node *b, Node *c);
   void UnionChildNodes(const Node *a, Node *c);
@@ -31,17 +30,17 @@ private:
   using NodeMultiMap = std::unordered_multimap<Key<std::string, char>, const Node*>;
   using KeySet = std::unordered_set<Key<std::string, char>>;
 
-  void Append(const KeyType &k, NodeMultiMap& map, Node *c);
+  void AppendNode(const KeyType &k, NodeMultiMap& map, Node *c);
   void UnifyAppend(const KeyType &k, NodeMultiMap& map, Node *c);
-  void UnifyAppendMultiTags(const KeyType &k, NodeMultiMap& map, Node *c);
+  void UnifyAppendMulti(const KeyType &k, NodeMultiMap& map, Node *c);
   void EnumerateAtributes(const Node* a, NodeAtributeMap& unionMap) const;
   void EnumerateNodes(const Node *node, KeySet& keys, NodeMultiMap &map) const;
-  void SortTagTopic(Node* root);
-  void Preppend(const std::string& name, Node* parent);
+  void SortDocumentTop(Node* root);
+  void PreppendNode(const std::string& name, Node* parent);
   void RemoveDuplicateKeys(const Node* nodeToMerge, KeySet& keys);
 
   std::string idFilter = "Guid";
-  Document* doc = nullptr;
+  Document* destDoc = nullptr;
 };
 
 

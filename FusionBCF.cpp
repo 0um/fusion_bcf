@@ -4,129 +4,128 @@ using namespace rapidxml;
 using namespace std;
 
 void FusionBCF::UnionDocuments(const Document& a, const Document& b, Document& c) {
-  doc = nullptr;
-  doc = &c;
+  destDoc = nullptr;
+  destDoc = &c;
   const Node *aNode = a.first_node();
-  const Node *bNode = b.first_node(); //deve encontrar primeiramente uma raiz em comum
-  auto root = doc->allocate_node(node_element, aNode->name());
+  const Node *bNode = b.first_node();
+  auto root = destDoc->allocate_node(node_element, aNode->name());
   UnionAtributes(aNode, root);
   UnionAtributes(bNode, root);
   UnionNodes(aNode->first_node(), bNode->first_node(), root);
-  SortTagTopic(root);
+  SortDocumentTop(root);
 
   c.append_node(root);
 }
 
-void FusionBCF::UnionNodes(const Node *a, const Node *b, Node *c) {
+void FusionBCF::UnionNodes(const Node *priorityDocument, const Node *secondaryDocument, Node *destination) {
   NodeMultiMap map;
   KeySet keys;
-  EnumerateNodes(a, keys, map);
-  EnumerateNodes(b, keys, map);  
+  EnumerateNodes(priorityDocument, keys, map);
+  EnumerateNodes(secondaryDocument, keys, map);  
 
-  for (auto&& k : keys) {
-    if (k.Unify()) {
-      UnifyAppendMultiTags(k, map, c);
+  for (auto&& key : keys) {
+    if (key.Unify()) {
+      UnifyAppendMulti(key, map, destination);
     }
     else {
-      UnifyAppend(k, map, c);
+      UnifyAppend(key, map, destination);
     }
   }
 }
 
 void FusionBCF::RemoveDuplicateKeys(const Node* nodeToMerge, KeySet& keys) {
   NodeMultiMap map;
-  KeySet keysOld;
-  EnumerateNodes(nodeToMerge->first_node(), keysOld, map);
-  for (auto v : keysOld) {
-    keys.erase(v);
+  KeySet oldKeys;
+  EnumerateNodes(nodeToMerge->first_node(), oldKeys, map);
+  for (auto key : oldKeys) {
+    keys.erase(key);
   }
 }
 
-void FusionBCF::UnionChildNodes(const Node *a, Node *c) {
+void FusionBCF::UnionChildNodes(const Node *appendNode, Node *destination) {
   NodeMultiMap map;
   KeySet keys;
-  EnumerateNodes(a, keys, map);
-  RemoveDuplicateKeys(c, keys);
+  EnumerateNodes(appendNode, keys, map);
+  RemoveDuplicateKeys(destination, keys);
 
-  for (auto&& k : keys) {
-    if (k.Unify()) {
-      UnifyAppendMultiTags(k, map, c);
+  for (auto&& key : keys) {
+    if (key.Unify()) {
+      UnifyAppendMulti(key, map, destination);
     }
     else {
-      Append(k, map, c);
+      AppendNode(key, map, destination);
     }
   }
 }
 
-void FusionBCF::Append(const KeyType &k, NodeMultiMap& map, Node *c) {
-  auto listNodes = map.equal_range(k);
-  for (auto it = listNodes.first; it != listNodes.second; ++it) {
+void FusionBCF::AppendNode(const KeyType &key, NodeMultiMap& map, Node *destination) {
+  auto simblingsSameTag = map.equal_range(key);
+  for (auto it = simblingsSameTag.first; it != simblingsSameTag.second; ++it) {
     if (auto node = it->second) {
-      c->append_node(doc->clone_node(node));
+      destination->append_node(destDoc->clone_node(node));
     }
   }
 }
 
-void FusionBCF::UnifyAppendMultiTags(const KeyType &k, NodeMultiMap& map, Node *c) {
-  if (map.count(k) > 1) {
-    auto accumulator = doc->allocate_node(node_element, doc->allocate_string(k.Name().c_str()));
-    auto simblingsSameTag = map.equal_range(k);
+void FusionBCF::UnifyAppendMulti(const KeyType &key, NodeMultiMap& map, Node *destination) {
+  if (map.count(key) > 1) {
+    auto accumulator = destDoc->allocate_node(node_element, destDoc->allocate_string(key.Name().c_str()));
+    auto simblingsSameTag = map.equal_range(key);
     for (auto it = simblingsSameTag.first; it != simblingsSameTag.second; ++it) {
-      const Node* node = it->second;
-      UnionAtributes(node, accumulator);
-      UnionValues(node, accumulator);
-      UnionChildNodes(node->first_node(), accumulator);
+      const Node* appendNode = it->second;
+      UnionAtributes(appendNode, accumulator);
+      UnionValues(appendNode, accumulator);
+      UnionChildNodes(appendNode->first_node(), accumulator);
     }
-    c->append_node(accumulator);
+    destination->append_node(accumulator);
   }
   else {
-    Append(k, map, c);
+    AppendNode(key, map, destination);
   }
 }
 
-void FusionBCF::UnifyAppend(const KeyType &k, NodeMultiMap& map, Node *c) {
-  auto accumulator = doc->allocate_node(node_element, doc->allocate_string(k.Name().c_str()));
-  auto p = map.find(k);
-  if (auto node = p->second) {
-    UnionAtributes(node, accumulator);
-    UnionValues(node, accumulator);
-    UnionNodes(node->first_node(), accumulator->first_node(), accumulator);
-    c->append_node(accumulator);
+void FusionBCF::UnifyAppend(const KeyType &key, NodeMultiMap& map, Node *destination) {
+  auto accumulatorNode = destDoc->allocate_node(node_element, destDoc->allocate_string(key.Name().c_str()));
+  auto listIterator = map.find(key);
+  const Node* appendNode = listIterator->second;
+  UnionAtributes(appendNode, accumulatorNode);
+  UnionValues(appendNode, accumulatorNode);
+  UnionNodes(appendNode->first_node(), accumulatorNode->first_node(), accumulatorNode);
+  destination->append_node(accumulatorNode);
+}
+
+void FusionBCF::UnionValues(const Node *appendNode, Node *parentDestination) {
+  if (appendNode->value_size() > 0) {
+    parentDestination->value(destDoc->allocate_string(appendNode->value()));
   }
 }
 
-void FusionBCF::UnionValues(const Node *a, Node *b) {
-    if (a->value_size() > 0) {
-      b->value(doc->allocate_string(a->value()));
-    }
-}
-
-void FusionBCF::UnionAtributes(const Node *a, Node *b) {
+void FusionBCF::UnionAtributes(const Node *appendNode, Node *parentDestination) {
   NodeAtributeMap map;
-  EnumerateAtributes(a, map);
+  EnumerateAtributes(appendNode, map);
   
   const char* ch_filter = idFilter.c_str();
-  for (auto&& p : map) {
-    auto atr = p.second;
-    if (auto has = b->first_attribute(atr->name())) {
-      b->remove_attribute(has);
+  for (auto&& item : map) {
+    Atribute* atr = item.second;
+    if (Atribute* hasAtribute = parentDestination->first_attribute(atr->name())) {
+      parentDestination->remove_attribute(hasAtribute);
     }
 
-    Atribute* clone_atr = doc->allocate_attribute(atr->name(), atr->value());
-    if (strcmp(ch_filter, clone_atr->name()) == 0) {
-      b->prepend_attribute(clone_atr);
+    Atribute* cloneAtribute = destDoc->allocate_attribute(atr->name(), atr->value());
+    if (strcmp(ch_filter, cloneAtribute->name()) == 0) {
+      parentDestination->prepend_attribute(cloneAtribute);
     }
     else {
-      b->append_attribute(clone_atr);
+      parentDestination->append_attribute(cloneAtribute);
     }
   }
 }
 
 void FusionBCF::EnumerateAtributes(const Node* node, NodeAtributeMap& unionMap) const {
   if (node != nullptr) {
-    for (Atribute* attr = node->first_attribute(); attr != nullptr; attr = attr->next_attribute()) {
-      if (char* name = attr->name()) {
-        unionMap.emplace(string(name), attr);
+    for (Atribute* atribute = node->first_attribute(); atribute != nullptr; atribute = atribute->next_attribute()) {
+      if (char* name = atribute->name()) {
+        unionMap.emplace(string(name), atribute);
       }
     }
   }
@@ -136,17 +135,17 @@ void FusionBCF::EnumerateNodes(const Node *_node, KeySet& keys, NodeMultiMap &ma
   if (_node != nullptr) {
     const char* filter = idFilter.c_str();
     for (const Node* node = _node; node != nullptr; node = node->next_sibling()) {
-      if (Atribute *attr = node->first_attribute(filter)) {
-        KeyType k(node->name(), attr->value(), true);
-        keys.emplace(k);
-        map.emplace(k, node);
+      if (Atribute *atribute = node->first_attribute(filter)) {
+        KeyType key(node->name(), atribute->value(), true);
+        keys.emplace(key);
+        map.emplace(key, node);
       }
       else {
         if (char* name = node->name()) {
           if (strcmp(name, "") != 0) {
-            KeyType k(node->name());
-            keys.emplace(k);
-            map.emplace(k, node);
+            KeyType key(node->name());
+            keys.emplace(key);
+            map.emplace(key, node);
           }
         }
       }
@@ -154,16 +153,16 @@ void FusionBCF::EnumerateNodes(const Node *_node, KeySet& keys, NodeMultiMap &ma
   }
 }
 
-void FusionBCF::Preppend(const string& name, Node* parent) {
-  if (Node* node = parent->first_node(name.c_str())) {
-    parent->insert_node(parent->first_node(), doc->clone_node(node));
+void FusionBCF::PreppendNode(const string& name, Node* parentDestination) {
+  if (Node* node = parentDestination->first_node(name.c_str())) {
+    parentDestination->insert_node(parentDestination->first_node(), destDoc->clone_node(node));
     node->remove_all_nodes();
-    parent->remove_node(node);
+    parentDestination->remove_node(node);
   }
 }
 
-void FusionBCF::SortTagTopic(Node* root) {
-  Preppend("Topic", root);
-  Preppend("Header", root);
+void FusionBCF::SortDocumentTop(Node* root) {
+  PreppendNode("Topic", root);
+  PreppendNode("Header", root);
 }
 
