@@ -1,7 +1,7 @@
 #pragma warning(push, 0)  
-#include "rapidxml/rapidxml.hpp"
-#include "rapidxml/rapidxml_utils.hpp"
-#include "rapidxml/rapidxml_print.hpp"
+#include "rapidxml.hpp"
+#include "rapidxml_utils.hpp"
+#include "rapidxml_print.hpp"
 #pragma warning(pop)  
 
 #include <iostream>
@@ -11,7 +11,7 @@
 using namespace rapidxml;
 
 void ShowHelp() {
-  std::cout << "fusion_bcf.exe -id filter inputA inputB <optional OutputC>" << std::endl;
+  std::cout << "fusion_bcf.exe inputA inputB <optional OutputC>" << std::endl;
 }
 
 int main(int argc, char* argv[]) {
