@@ -1,39 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Workspace\fusion_xml\main.cpp">
+    <ClCompile Include="C:\Workspace\fusion_bcf\src\FusionBCF.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Workspace\fusion_xml\FusionBCF.cpp">
+    <ClCompile Include="C:\Workspace\fusion_bcf\src\Timestamp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Workspace\fusion_bcf\src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Workspace\fusion_xml\rapidxml\rapidxml.hpp">
+    <ClInclude Include="C:\Workspace\fusion_bcf\src\FusionBCF.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Workspace\fusion_xml\rapidxml\rapidxml_iterators.hpp">
+    <ClInclude Include="C:\Workspace\fusion_bcf\src\Key.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Workspace\fusion_xml\rapidxml\rapidxml_print.hpp">
+    <ClInclude Include="C:\Workspace\fusion_bcf\src\StreamUTF8.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Workspace\fusion_xml\rapidxml\rapidxml_utils.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Workspace\fusion_xml\FusionBCF.h">
+    <ClInclude Include="C:\Workspace\fusion_bcf\src\Timestamp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Workspace\fusion_xml\CMakeLists.txt" />
+    <CustomBuild Include="C:\Workspace\fusion_bcf\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{2BDA7396-64EA-3D69-A452-568870633B49}</UniqueIdentifier>
+      <UniqueIdentifier>{736DAA31-5E86-3D24-BB61-573A065B875A}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{BD5D82FF-44D4-30C5-ACE1-409448ADBAE9}</UniqueIdentifier>
+      <UniqueIdentifier>{ACC61AFB-EE2B-34DE-B47E-C7F75C3B2AD2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

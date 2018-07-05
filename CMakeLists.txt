@@ -11,17 +11,10 @@ file(GLOB HEADERS
 
 file(GLOB SOURCES
       "./src/*.cpp"
-      "./cctz/src/civil_time_detail.cc"
-      "./cctz/src/time_zone_fixed.cc"
-      "./cctz/src/time_zone_format.cc"
-      "./cctz/src/time_zone_if.cc"
-      "./cctz/src/time_zone_impl.cc"
-      "./cctz/src/time_zone_info.cc"
-      "./cctz/src/time_zone_libc.cc"
-      "./cctz/src/time_zone_lookup.cc"
-      "./cctz/src/time_zone_posix.cc"
-      "./cctz/src/zone_info_source.cc"
       )
+	  
+add_subdirectory("./cctz/"
+		 ${CMAKE_BINARY_DIR}/CCTZ)
 	  
 add_executable(fusion_bcf ${HEADERS} ${SOURCES} )
 
@@ -29,6 +22,10 @@ target_include_directories(
   fusion_bcf
   PRIVATE
   "./rapidxml/"
-  "./cctz/include/"
   )
 
+target_link_libraries(
+  fusion_bcf
+  PRIVATE
+  cctz
+  )

@@ -221,7 +221,7 @@ void FusionBCF::SortCommentsByDate(Node* root) {
   for (Node* node = root->first_node("Comment"); node != nullptr; node = node->next_sibling()) {
     if (strcmp(node->name(), "Comment") == 0) {
       if (auto && date = node->first_node("Date")) {
-        comments.emplace(date->value(), node);
+        comments.emplace(GetSortableTimestamp(date->value()), node);
       }
     }
   }
