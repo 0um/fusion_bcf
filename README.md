@@ -1,6 +1,8 @@
 # fusion_bcf
 Command line tool to merge two bcf files
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/186af04a24f244ce841d6802f2e3721c)](https://www.codacy.com/app/0unit/fusion_bcf?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=0unit/fusion_bcf&amp;utm_campaign=Badge_Grade)
+
 **Only Windows Platform!**
 
 Build
