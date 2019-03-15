@@ -5,6 +5,10 @@
 #include <locale>
 #include <codecvt>
 
+#if defined(VLD_ENABLE)
+#include <vld.h>
+#endif
+
 namespace SUTF8 {
   std::wstring GetWString(const char *c) {
     const size_t cSize = strlen(c) + 1;

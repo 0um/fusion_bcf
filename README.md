@@ -7,6 +7,7 @@ Command line tool to merge two bcf files
 
 Build
 ````
+git submodule update --recursive --remote
 cmake -G "Visual Studio 15 2017"
 ```
 

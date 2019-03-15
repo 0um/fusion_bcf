@@ -3,6 +3,10 @@
 
 #include <string>
 
+#if defined(VLD_ENABLE)
+#include <vld.h>
+#endif
+
 template <typename String, typename Char>
 class Key {
 public:

@@ -4,6 +4,10 @@
 #include <chrono>
 #include <string>
 
+#if defined(VLD_ENABLE)
+#include <vld.h>
+#endif
+
 class Timestamp
 {
 public:

@@ -10,6 +10,10 @@
 #include "rapidxml.hpp"
 #pragma warning(pop)  
 
+#if defined(VLD_ENABLE)
+#include <vld.h>
+#endif
+
 #include "Key.h"
 
 class FusionBCF {

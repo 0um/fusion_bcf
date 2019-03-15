@@ -83,7 +83,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>NCREMENTAL;C:\Workspace\fusion_bcf\.\rapidxml;C:\Workspace\fusion_bcf\cctz\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>NCREMENTAL;C:\Workspace\fusion_bcf\.\rapidxml;C:\Workspace\fusion_bcf\vld\include;C:\Workspace\fusion_bcf\cctz\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Debug/</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <CompileAs>CompileAsCpp</CompileAs>
@@ -95,15 +95,15 @@
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <WarningLevel>Level4</WarningLevel>
-      <PreprocessorDefinitions>CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>VLD_ENABLE;VLD_FORCE_ENABLE;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>WIN32;_DEBUG;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Workspace\fusion_bcf\.\rapidxml;C:\Workspace\fusion_bcf\cctz\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;VLD_ENABLE;VLD_FORCE_ENABLE;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Workspace\fusion_bcf\.\rapidxml;C:\Workspace\fusion_bcf\vld\include;C:\Workspace\fusion_bcf\cctz\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Workspace\fusion_bcf\.\rapidxml;C:\Workspace\fusion_bcf\cctz\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Workspace\fusion_bcf\.\rapidxml;C:\Workspace\fusion_bcf\vld\include;C:\Workspace\fusion_bcf\cctz\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -111,7 +111,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>cctz\Debug\cctz.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>vld\lib\VS2015\x86\vld.lib;cctz\Debug\cctz.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -126,7 +126,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>NCREMENTAL;C:\Workspace\fusion_bcf\.\rapidxml;C:\Workspace\fusion_bcf\cctz\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>NCREMENTAL;C:\Workspace\fusion_bcf\.\rapidxml;C:\Workspace\fusion_bcf\vld\include;C:\Workspace\fusion_bcf\cctz\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Release/</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
@@ -137,15 +137,15 @@
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <WarningLevel>Level4</WarningLevel>
-      <PreprocessorDefinitions>NDEBUG;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;VLD_ENABLE;VLD_FORCE_ENABLE;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>WIN32;NDEBUG;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Workspace\fusion_bcf\.\rapidxml;C:\Workspace\fusion_bcf\cctz\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;VLD_ENABLE;VLD_FORCE_ENABLE;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Workspace\fusion_bcf\.\rapidxml;C:\Workspace\fusion_bcf\vld\include;C:\Workspace\fusion_bcf\cctz\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Workspace\fusion_bcf\.\rapidxml;C:\Workspace\fusion_bcf\cctz\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Workspace\fusion_bcf\.\rapidxml;C:\Workspace\fusion_bcf\vld\include;C:\Workspace\fusion_bcf\cctz\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -153,7 +153,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>cctz\Release\cctz.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>vld\lib\VS2015\x86\vld.lib;cctz\Release\cctz.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -168,7 +168,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>NCREMENTAL;C:\Workspace\fusion_bcf\.\rapidxml;C:\Workspace\fusion_bcf\cctz\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>NCREMENTAL;C:\Workspace\fusion_bcf\.\rapidxml;C:\Workspace\fusion_bcf\vld\include;C:\Workspace\fusion_bcf\cctz\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
@@ -179,15 +179,15 @@
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <WarningLevel>Level4</WarningLevel>
-      <PreprocessorDefinitions>NDEBUG;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;VLD_ENABLE;VLD_FORCE_ENABLE;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>WIN32;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Workspace\fusion_bcf\.\rapidxml;C:\Workspace\fusion_bcf\cctz\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;VLD_ENABLE;VLD_FORCE_ENABLE;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Workspace\fusion_bcf\.\rapidxml;C:\Workspace\fusion_bcf\vld\include;C:\Workspace\fusion_bcf\cctz\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Workspace\fusion_bcf\.\rapidxml;C:\Workspace\fusion_bcf\cctz\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Workspace\fusion_bcf\.\rapidxml;C:\Workspace\fusion_bcf\vld\include;C:\Workspace\fusion_bcf\cctz\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -195,7 +195,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>cctz\MinSizeRel\cctz.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>vld\lib\VS2015\x86\vld.lib;cctz\MinSizeRel\cctz.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -210,7 +210,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>NCREMENTAL;C:\Workspace\fusion_bcf\.\rapidxml;C:\Workspace\fusion_bcf\cctz\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>NCREMENTAL;C:\Workspace\fusion_bcf\.\rapidxml;C:\Workspace\fusion_bcf\vld\include;C:\Workspace\fusion_bcf\cctz\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -221,15 +221,15 @@
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <WarningLevel>Level4</WarningLevel>
-      <PreprocessorDefinitions>NDEBUG;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;VLD_ENABLE;VLD_FORCE_ENABLE;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>WIN32;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Workspace\fusion_bcf\.\rapidxml;C:\Workspace\fusion_bcf\cctz\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;VLD_ENABLE;VLD_FORCE_ENABLE;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Workspace\fusion_bcf\.\rapidxml;C:\Workspace\fusion_bcf\vld\include;C:\Workspace\fusion_bcf\cctz\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Workspace\fusion_bcf\.\rapidxml;C:\Workspace\fusion_bcf\cctz\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Workspace\fusion_bcf\.\rapidxml;C:\Workspace\fusion_bcf\vld\include;C:\Workspace\fusion_bcf\cctz\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -237,7 +237,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>cctz\RelWithDebInfo\cctz.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>vld\lib\VS2015\x86\vld.lib;cctz\RelWithDebInfo\cctz.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -262,7 +262,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Workspace/fusion_bcf/CMakeLists.txt;C:\Workspace\fusion_bcf\CMakeLists.txt;C:\Workspace\fusion_bcf\CMakeFiles\3.11.1\CMakeSystem.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeSystemSpecificInitialize.cmake;C:\Workspace\fusion_bcf\CMakeFiles\3.11.1\CMakeCCompiler.cmake;C:\Workspace\fusion_bcf\CMakeFiles\3.11.1\CMakeCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\Windows-MSVC.cmake;C:\Workspace\fusion_bcf\CMakeFiles\3.11.1\CMakeRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeCommonLanguageInclude.cmake;C:\Workspace\fusion_bcf\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Workspace/fusion_bcf/CMakeLists.txt;C:\Workspace\fusion_bcf\CMakeLists.txt;C:\Workspace\fusion_bcf\CMakeFiles\3.11.1\CMakeSystem.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeSystemSpecificInitialize.cmake;C:\Workspace\fusion_bcf\CMakeFiles\3.11.1\CMakeCCompiler.cmake;C:\Workspace\fusion_bcf\CMakeFiles\3.11.1\CMakeCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\Windows-MSVC.cmake;C:\Workspace\fusion_bcf\CMakeFiles\3.11.1\CMakeRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeCommonLanguageInclude.cmake;C:\Workspace\fusion_bcf\vld\vld.cmake;C:\Workspace\fusion_bcf\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Workspace\fusion_bcf\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/Workspace/fusion_bcf/CMakeLists.txt</Message>
@@ -275,7 +275,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Workspace/fusion_bcf/CMakeLists.txt;C:\Workspace\fusion_bcf\CMakeLists.txt;C:\Workspace\fusion_bcf\CMakeFiles\3.11.1\CMakeSystem.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeSystemSpecificInitialize.cmake;C:\Workspace\fusion_bcf\CMakeFiles\3.11.1\CMakeCCompiler.cmake;C:\Workspace\fusion_bcf\CMakeFiles\3.11.1\CMakeCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\Windows-MSVC.cmake;C:\Workspace\fusion_bcf\CMakeFiles\3.11.1\CMakeRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeCommonLanguageInclude.cmake;C:\Workspace\fusion_bcf\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Workspace/fusion_bcf/CMakeLists.txt;C:\Workspace\fusion_bcf\CMakeLists.txt;C:\Workspace\fusion_bcf\CMakeFiles\3.11.1\CMakeSystem.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeSystemSpecificInitialize.cmake;C:\Workspace\fusion_bcf\CMakeFiles\3.11.1\CMakeCCompiler.cmake;C:\Workspace\fusion_bcf\CMakeFiles\3.11.1\CMakeCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\Windows-MSVC.cmake;C:\Workspace\fusion_bcf\CMakeFiles\3.11.1\CMakeRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeCommonLanguageInclude.cmake;C:\Workspace\fusion_bcf\vld\vld.cmake;C:\Workspace\fusion_bcf\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Workspace\fusion_bcf\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule C:/Workspace/fusion_bcf/CMakeLists.txt</Message>
@@ -288,7 +288,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:/Workspace/fusion_bcf/CMakeLists.txt;C:\Workspace\fusion_bcf\CMakeLists.txt;C:\Workspace\fusion_bcf\CMakeFiles\3.11.1\CMakeSystem.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeSystemSpecificInitialize.cmake;C:\Workspace\fusion_bcf\CMakeFiles\3.11.1\CMakeCCompiler.cmake;C:\Workspace\fusion_bcf\CMakeFiles\3.11.1\CMakeCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\Windows-MSVC.cmake;C:\Workspace\fusion_bcf\CMakeFiles\3.11.1\CMakeRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeCommonLanguageInclude.cmake;C:\Workspace\fusion_bcf\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:/Workspace/fusion_bcf/CMakeLists.txt;C:\Workspace\fusion_bcf\CMakeLists.txt;C:\Workspace\fusion_bcf\CMakeFiles\3.11.1\CMakeSystem.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeSystemSpecificInitialize.cmake;C:\Workspace\fusion_bcf\CMakeFiles\3.11.1\CMakeCCompiler.cmake;C:\Workspace\fusion_bcf\CMakeFiles\3.11.1\CMakeCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\Windows-MSVC.cmake;C:\Workspace\fusion_bcf\CMakeFiles\3.11.1\CMakeRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeCommonLanguageInclude.cmake;C:\Workspace\fusion_bcf\vld\vld.cmake;C:\Workspace\fusion_bcf\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Workspace\fusion_bcf\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule C:/Workspace/fusion_bcf/CMakeLists.txt</Message>
@@ -301,7 +301,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/Workspace/fusion_bcf/CMakeLists.txt;C:\Workspace\fusion_bcf\CMakeLists.txt;C:\Workspace\fusion_bcf\CMakeFiles\3.11.1\CMakeSystem.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeSystemSpecificInitialize.cmake;C:\Workspace\fusion_bcf\CMakeFiles\3.11.1\CMakeCCompiler.cmake;C:\Workspace\fusion_bcf\CMakeFiles\3.11.1\CMakeCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\Windows-MSVC.cmake;C:\Workspace\fusion_bcf\CMakeFiles\3.11.1\CMakeRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeCommonLanguageInclude.cmake;C:\Workspace\fusion_bcf\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/Workspace/fusion_bcf/CMakeLists.txt;C:\Workspace\fusion_bcf\CMakeLists.txt;C:\Workspace\fusion_bcf\CMakeFiles\3.11.1\CMakeSystem.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeSystemSpecificInitialize.cmake;C:\Workspace\fusion_bcf\CMakeFiles\3.11.1\CMakeCCompiler.cmake;C:\Workspace\fusion_bcf\CMakeFiles\3.11.1\CMakeCXXCompiler.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\Windows-MSVC.cmake;C:\Workspace\fusion_bcf\CMakeFiles\3.11.1\CMakeRCCompiler.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CMakeCommonLanguageInclude.cmake;C:\Workspace\fusion_bcf\vld\vld.cmake;C:\Workspace\fusion_bcf\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Workspace\fusion_bcf\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
     </CustomBuild>

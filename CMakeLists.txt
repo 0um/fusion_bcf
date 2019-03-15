@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.10)
 
 project(fusion_bcf)
 
+set(VLD_ENABLE True)
+
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_FLAGS "/W4 /nologo /INCREMENTAL /ZI /EHsc")
 
@@ -23,9 +25,23 @@ target_include_directories(
   PRIVATE
   "./rapidxml/"
   )
-
+if(VLD_ENABLE)
+  include("./vld/vld.cmake")
+endif(VLD_ENABLE)
+  
+if(VLD_ENABLE)
 target_link_libraries(
-  fusion_bcf
+  fusion_bcf 
+  PUBLIC 
+  vld
   PRIVATE
   cctz
-  )
+)
+else(VLD_ENABLE)
+target_link_libraries(
+  fusion_bcf 
+  PRIVATE
+  cctz
+)
+endif(VLD_ENABLE)
+

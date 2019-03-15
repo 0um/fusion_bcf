@@ -4,6 +4,10 @@
 #include "rapidxml_print.hpp"
 #pragma warning(pop)  
 
+#if defined(VLD_ENABLE)
+  #include <vld.h>
+#endif
+
 #include <iostream>
 
 #include "FusionBCF.h"
