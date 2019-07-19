@@ -1,17 +1,19 @@
 #include "FusionBCF.h"
 
+#include <string>
+#include <vector>
+
 #include "Timestamp.h"
 
 using namespace rapidxml;
-using namespace std;
 
 namespace
 {
-  string GetSortableTimestamp(
-    const string& inputDate
+  std::string GetSortableTimestamp(
+    const std::string& inputDate
   )
   {
-    static std::vector<string> timestamps = { "%Y-%m-%dT%H:%M:%S.%E3f%Ez", "%Y-%m-%dT%H:%M:%S%Ez", "%Y-%m-%dT%H:%M:%S.%E5fZ", "%Y-%m-%dT%H:%M:%S" };
+    static std::vector<std::string> timestamps = { "%Y-%m-%dT%H:%M:%S.%E3f%Ez", "%Y-%m-%dT%H:%M:%S%Ez", "%Y-%m-%dT%H:%M:%S.%E5fZ", "%Y-%m-%dT%H:%M:%S" };
     for (auto && format : timestamps) {
       if (Timestamp::IsValid(inputDate, format)) {
         Timestamp oldFormat(inputDate, format);
@@ -158,7 +160,7 @@ void FusionBCF::EnumerateAtributes(const Node* node, NodeAtributeMap& unionMap) 
   if (node != nullptr) {
     for (Atribute* atribute = node->first_attribute(); atribute != nullptr; atribute = atribute->next_attribute()) {
       if (char* name = atribute->name()) {
-        unionMap.emplace(string(name), atribute);
+        unionMap.emplace(std::string(name), atribute);
       }
     }
   }
@@ -186,7 +188,7 @@ void FusionBCF::EnumerateNodes(const Node *_node, KeySet& keys, NodeMultiMap &ma
   }
 }
 
-void FusionBCF::PreppendNode(const string& name, Node* parentDestination) {
+void FusionBCF::PreppendNode(const std::string& name, Node* parentDestination) {
   if (Node* node = parentDestination->first_node(name.c_str())) {
     parentDestination->remove_node(node);
     parentDestination->prepend_node(node);
@@ -216,7 +218,7 @@ void FusionBCF::SortViewpoint(Node* root) {
 }
 
 void FusionBCF::SortCommentsByDate(Node* root) {
-  vector<Node*> commentsToRemove;
+  std::vector<Node*> commentsToRemove;
   SortMap comments;
   for (Node* node = root->first_node("Comment"); node != nullptr; node = node->next_sibling()) {
     if (strcmp(node->name(), "Comment") == 0) {
