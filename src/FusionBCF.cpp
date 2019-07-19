@@ -146,7 +146,7 @@ void FusionBCF::UnionAtributes(const Node *appendNode, Node *parentDestination, 
     }
     else {
       Atribute* cloneAtribute = doc.allocate_attribute(doc.allocate_string(atr->name()), doc.allocate_string(atr->value()));
-      if (strcmp(ch_filter, cloneAtribute->name()) == 0) {
+      if (std::strcmp(ch_filter, cloneAtribute->name()) == 0) {
         parentDestination->prepend_attribute(cloneAtribute);
       }
       else {
@@ -177,7 +177,7 @@ void FusionBCF::EnumerateNodes(const Node *_node, KeySet& keys, NodeMultiMap &ma
       }
       else {
         if (char* name = node->name()) {
-          if (strcmp(name, "") != 0) {
+          if (std::strcmp(name, "") != 0) {
             KeyType key(node->name());
             keys.emplace(key);
             map.emplace(key, node);
@@ -203,7 +203,7 @@ void FusionBCF::SortDocumentTop(Node* root) {
 void FusionBCF::SortViewpoint(Node* root) {
   SortMap viewpoints;
   for (Node* node = root->first_node(); node != nullptr; node = node->next_sibling()) {
-    if (strcmp(node->name(), "Viewpoints") == 0) {
+    if (std::strcmp(node->name(), "Viewpoints") == 0) {
       if (Atribute* atribute = node->first_attribute("Guid")) {
         viewpoints.emplace(atribute->value(), node);
       }
@@ -221,7 +221,7 @@ void FusionBCF::SortCommentsByDate(Node* root) {
   std::vector<Node*> commentsToRemove;
   SortMap comments;
   for (Node* node = root->first_node("Comment"); node != nullptr; node = node->next_sibling()) {
-    if (strcmp(node->name(), "Comment") == 0) {
+    if (std::strcmp(node->name(), "Comment") == 0) {
       if (auto && date = node->first_node("Date")) {
         comments.emplace(GetSortableTimestamp(date->value()), node);
       }
