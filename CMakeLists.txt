@@ -2,9 +2,6 @@ cmake_minimum_required(VERSION 3.9)
 
 project(fusion_bcf)
 
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_FLAGS "/W4 /nologo /INCREMENTAL /ZI /EHsc")
-
 file(GLOB HEADERS 
     "./src/*.h"
     )
