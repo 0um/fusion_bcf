@@ -5,14 +5,13 @@
 #include <iterator>
 #include <sstream>
 
-#pragma warning(push, 0) 
 #include "cctz/civil_time.h"
 #include "cctz/time_zone.h"
 #include "cctz/zone_info_source.h"
-#pragma warning(pop) 
 
 using namespace std;
 
+#ifdef _WIN32
 namespace {
   #include <Windows.h>
 
@@ -22,6 +21,12 @@ namespace {
     return (long)TimeZoneInfo.Bias;
   }
 }
+#endif
+#ifdef linux
+  long SystemTimeZoneOffSetMinutes() {
+    return (long)0;
+  }
+#endif
 
 Timestamp::Timestamp() {
   tp = std::chrono::system_clock::now();

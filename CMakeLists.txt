@@ -10,16 +10,19 @@ file(GLOB SOURCES
       "./src/*.cpp"
       )
       
-add_subdirectory("./cctz/"
-         ${CMAKE_BINARY_DIR}/CCTZ)
-      
 add_executable(fusion_bcf ${HEADERS} ${SOURCES} )
 
 target_include_directories(
   fusion_bcf
   PRIVATE
   "./rapidxml/"
+#  "./cctz/include/"
   )
+  
+add_subdirectory(
+  "${CURRENT_SOURCE_DIR}./cctz/"
+  ${CMAKE_BINARY_DIR}/CCTZ
+)
 
 target_link_libraries(
   fusion_bcf
@@ -29,8 +32,6 @@ target_link_libraries(
 
   
 if (MSVC)
-    target_compile_options(tests PRIVATE /std:c++14)
-
     set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /Ox")
     set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /Od")
 
