@@ -11,9 +11,6 @@ addons:
       - g++-6
       - clang-5.0
 
-before_install:
-  - pip install --user cpp-coveralls
-
 script:
   - CXX=/usr/bin/g++-6 CC=/usr/bin/gcc-6 cmake .
   - cmake --build . 
