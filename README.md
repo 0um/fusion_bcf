@@ -1,6 +1,7 @@
 # fusion_bcf
 Command line tool to merge two bcf files
-[![Build Status](https://travis-ci.org/0um/fusion_bcf.svg?branch=master)](https://travis-ci.org/0um/fusion_bcf)[![Build status](https://ci.appveyor.com/api/projects/status/4fhtr1v83thrcjun?svg=true)](https://ci.appveyor.com/project/0um/fusion-bcf)[![Codacy Badge](https://api.codacy.com/project/badge/Grade/186af04a24f244ce841d6802f2e3721c)](https://www.codacy.com/app/0um/fusion_bcf?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=0um/fusion_bcf&amp;utm_campaign=Badge_Grade)
+
+[![Build Status](https://travis-ci.org/0um/fusion_bcf.svg?branch=master)](https://travis-ci.org/0um/fusion_bcf) [![Build status](https://ci.appveyor.com/api/projects/status/4fhtr1v83thrcjun?svg=true)](https://ci.appveyor.com/project/0um/fusion-bcf) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/186af04a24f244ce841d6802f2e3721c)](https://www.codacy.com/app/0um/fusion_bcf?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=0um/fusion_bcf&amp;utm_campaign=Badge_Grade)
 
 Build
 ```
