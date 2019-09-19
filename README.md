@@ -5,7 +5,8 @@ Command line tool to merge two bcf files
 
 Build
 ```
-cmake -G "Visual Studio 15 2017"
+git submodule update --init --recursive
+cmake -G "Visual Studio 15 2017 Win64" . -DBUILD_TESTING=false
 ```
 
 Run
